@@ -11,7 +11,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  
+  void _showModalSheet() {
+    showModalBottomSheet(context: context, builder: (builder) {
+      return Container(
+        child: Text('Welcome to Login Page'),
+        padding: EdgeInsets.all(40.0),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +87,13 @@ class _HomePageState extends State<HomePage> {
                    color: Color(0xFF707A8A),
                   ), 
                 ),
-                AuthPage(),
                   ],
                 ),
                 ),
               ],
             ),
           ),
-          
+          AuthPage(),
        ],
      ),
     );
