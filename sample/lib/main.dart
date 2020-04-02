@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         accentColor: Colors.white,
         buttonColor: Colors.black,
-        fontFamily: 'Bitter'
+        fontFamily: 'Bitter',
+        //canvasColor: Colors.transparent,
       ),
       home: MyHomePage(title: 'Sample'),
     );

@@ -1,6 +1,7 @@
-import 'dart:math';
+// import 'dart:math';
 import 'package:flutter/material.dart';
 
+enum AuthMode { Signup, Login }
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key key}) : super(key: key);
@@ -10,12 +11,32 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
+  
+  Widget myLogin(){
+    return Padding(
+  padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+  child: TextField()
+);
+  }
+  // Widget mySignup(){
 
+  // }
+  Widget myForm(AuthMode data)
+  {
+    return Container(
+      //child:Text(data == AuthMode.Login ? 'LOGIN' : 'SIGN UP',style: TextStyle(fontSize: 150),)
+      child:Container(child:data==AuthMode.Login?myLogin():Text('SIGNUP',style:TextStyle(fontSize:150)),)
+    );
+  }
 
-  void _showModalSheet() {
-    showModalBottomSheet(context: context, builder: (builder) {
+  void _showModalSheet(AuthMode data) {
+    showModalBottomSheet(context: context, shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+        ), builder: (builder) {
+     
       return Container(
-        child: Text('Welcome to Login Page'),
+        
+        child: myForm(data),
         padding: EdgeInsets.all(40.0),
       );
     });
@@ -46,7 +67,7 @@ class _AuthPageState extends State<AuthPage> {
                       color: Theme.of(context).buttonColor, 
                       textColor: Colors.white, 
                       child: new Text("Log In",style: TextStyle(fontSize: 20),), 
-                      onPressed: _showModalSheet, 
+                      onPressed: (){ _showModalSheet(AuthMode.Login);}, 
                       splashColor: Colors.grey,
                       elevation: 0,
                     ),
@@ -85,7 +106,7 @@ class _AuthPageState extends State<AuthPage> {
                       color: Color(0xFF0057ff), 
                       textColor: Colors.white, 
                       child: new Text("Register",style: TextStyle(fontSize: 20),), 
-                      onPressed: () => {}, 
+                      onPressed:(){ _showModalSheet(AuthMode.Signup);}, 
                       splashColor: Colors.lightBlue,
                       elevation: 0,
                     ),

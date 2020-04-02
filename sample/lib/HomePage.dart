@@ -2,29 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:sample/AuthPage.dart';
 
 
-class HomePage extends StatefulWidget {
+
+
+class HomePage extends StatelessWidget {
  // const HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  void _showModalSheet() {
-    showModalBottomSheet(context: context, builder: (builder) {
-      return Container(
-        child: Text('Welcome to Login Page'),
-        padding: EdgeInsets.all(40.0),
-      );
-    });
-  }
+  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  bool enabled = false; 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _drawerKey, 
+      drawer: Drawer(child: Text("hello"),),
      body:new Stack(
        children: <Widget>[
+        //  Drawer(
+        //    child:Text("hello")
+        //  ),
           new Container(
             
             margin:EdgeInsets.only(top:25,left:30),
@@ -33,7 +27,12 @@ class _HomePageState extends State<HomePage> {
             child:IconButton(
               //icon: Icon(Icons.menu),
                icon: Image.asset('assets/icons/menu.png',height: 50,width: 25,),
-               onPressed: (){},
+               onPressed: (){
+                 if (enabled) {
+            // open drawer if this value is true
+            _drawerKey.currentState.openDrawer();
+          }
+               },
              ),
           ),
           new Container(
