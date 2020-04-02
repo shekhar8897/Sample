@@ -21,22 +21,42 @@ class HomePage extends StatelessWidget {
              ),
           ),
           new Container(
-             //decoration: BoxDecoration(border: Border.all(width:1)),
-             margin:EdgeInsets.only(top:135,left:30,right:30),
+            // decoration: BoxDecoration(border: Border.all(width:1)),
+             margin:EdgeInsets.only(top:125,left:30,right:30),
              width:MediaQuery.of(context).size.width,
-             padding: EdgeInsets.only(top:180,left:10),
-             height:MediaQuery.of(context).size.height*0.5,
+             padding: EdgeInsets.only(top:30,left:10),
+             height:MediaQuery.of(context).size.height*0.6,
             child:Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.only(bottom:20),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF0057ff),   // set border width
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(10.0)), // set rounded corner radius
+                    boxShadow: [BoxShadow(blurRadius: 10,color: Color(0xFF90CAF9),offset: Offset(1,10))]// make rounded corner of border
+                  ),
+                  child: Text("F.",style: TextStyle(fontSize: 30,color: Colors.white),),
+                ),
+                Container(
+                  //decoration: BoxDecoration(border: Border.all(width:1)),
+                    margin:EdgeInsets.only(top:60,right:30),
+                    width:MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.only(top:30),
+                  child:Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                     Text(
                   "Let's start\nmanaging your\nfinances",
 
                   style: new TextStyle
                   (
                     //height: 20,
-                    fontSize: 38,
+                    fontSize: 35,
                     fontWeight: FontWeight.w100,
                     color: Color(0xFF707A8A),
                   ),    
@@ -48,15 +68,18 @@ class HomePage extends StatelessWidget {
                   style: new TextStyle
                   (
                     fontSize: 15,
-                    color: Colors.grey
+                   color: Color(0xFF707A8A),
                   ), 
+                ),
+                  ],
+                ),
                 ),
               ],
             ),
           ),
           new Container(
             //decoration: BoxDecoration(border: Border.all(width:1)),
-             margin:EdgeInsets.only(top:430,left:30,right:30),
+             margin:EdgeInsets.only(top:450,left:38,right:30),
              width:MediaQuery.of(context).size.width,
              padding: EdgeInsets.only(top:130),
              height:MediaQuery.of(context).size.height*0.4,
@@ -138,7 +161,7 @@ class HomePage extends StatelessWidget {
                       textColor: Colors.white, 
                       child: new Text("Register",style: TextStyle(fontSize: 20),), 
                       onPressed: () => {}, 
-                      splashColor: Colors.grey,
+                      splashColor: Colors.lightBlue,
                       elevation: 0,
                     ),
 
