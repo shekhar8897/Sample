@@ -20,7 +20,7 @@ class _AuthPageState extends State<AuthPage> {
       );
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -93,6 +93,6 @@ class _AuthPageState extends State<AuthPage> {
                 
               ],
             ),
-          ),
+          );
   }
 }
