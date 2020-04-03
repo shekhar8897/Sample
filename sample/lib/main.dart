@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.white,
         buttonColor: Colors.black,
         fontFamily: 'Bitter',
+        
         //canvasColor: Colors.transparent,
       ),
       home: MyHomePage(title: 'Sample'),

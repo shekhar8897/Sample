@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sample/AuthPage.dart';
 
 
-
-
 class HomePage extends StatefulWidget {
  // const HomePage({Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
+
 }
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
@@ -57,13 +56,13 @@ Widget menu(context) {
                 children: <Widget>[
                   Text("Home", style: TextStyle(color: Colors.white, fontSize: 22)),
                   SizedBox(height: 10),
-                  // Text("Messages", style: TextStyle(color: Colors.black, fontSize: 22)),
-                  // SizedBox(height: 10),
-                  // Text("Utility Bills", style: TextStyle(color: Colors.black, fontSize: 22)),
-                  // SizedBox(height: 10),
-                  // Text("Funds Transfer", style: TextStyle(color: Colors.black, fontSize: 22)),
-                  // SizedBox(height: 10),
-                  // Text("Branches", style: TextStyle(color: Colors.black, fontSize: 22)),
+                  Text("Profile", style: TextStyle(color: Colors.white, fontSize: 22)),
+                  SizedBox(height: 10),
+                  Text("Utility Bills", style: TextStyle(color: Colors.white, fontSize: 22)),
+                  SizedBox(height: 10),
+                  Text("Funds Transfer", style: TextStyle(color: Colors.white, fontSize: 22)),
+                  SizedBox(height: 10),
+                  Text("Branches", style: TextStyle(color: Colors.white, fontSize: 22)),
                 ],
               ),
             ),
