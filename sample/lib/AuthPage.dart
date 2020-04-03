@@ -1,5 +1,7 @@
 // import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:sample/myLogin.dart';
+import 'package:sample/mySignup.dart';
 
 enum AuthMode { Signup, Login }
 
@@ -12,117 +14,75 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   
-  Widget myLogin(){
-       return Column(
-         crossAxisAlignment: CrossAxisAlignment.start,
-         children: <Widget>[
-           Text('LogIn',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff)),),
-           Divider(),
-           SizedBox(height: 50),
-           Container(
-                           
-             child: Form(
-              
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    TextFormField(
-                   decoration: InputDecoration(labelText: 'Username'),
-                   textInputAction: TextInputAction.next,
-                   
-                 ),
-                 SizedBox(height: 15),
-                 TextFormField(
-                   decoration: InputDecoration(labelText: 'Password'),
-                   textInputAction: TextInputAction.next,
-                   keyboardType: TextInputType.number,
-                 ),
-                 SizedBox(height: 40),
-                 new MaterialButton( 
-                   shape: RoundedRectangleBorder(
-                     borderRadius: new BorderRadius.circular(15.0),
-                   ),
-                   height: 70.0, 
-                   minWidth: 360.0, 
-                   color: Color(0xFF0057ff), 
-                   textColor: Colors.white, 
-                   child: new Text("LogIn",style: TextStyle(fontSize: 20),), 
-                   onPressed:(){ }, 
-                   splashColor: Colors.lightBlue,
-                   elevation: 0,
-                 ),
-                ],),
-               )),
-           ),
-         ],
-       );
-  }
-
-
-  Widget mySignup(){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text('SignUp',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff)),),
-        Divider(),
-        SizedBox(height: 50),
-        Container(
+ 
+  // Widget mySignup(){
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: <Widget>[
+  //       Text('SignUp',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff)),),
+  //       Divider(),
+  //       SizedBox(height: 50),
+  //       Container(
                         
-          child: Form(
-           child: SingleChildScrollView(
-             child: Column(
-               children: <Widget>[
-                 TextFormField(
-                decoration: InputDecoration(labelText: 'Username'),
-                textInputAction: TextInputAction.next,
+  //         child: Form(
+  //          child: SingleChildScrollView(
+  //            child: Column(
+  //              children: <Widget>[
+  //                TextFormField(
+  //               decoration: InputDecoration(labelText: 'Username'),
+  //               textInputAction: TextInputAction.next,
                 
-              ),
-              SizedBox(height: 15),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
-                textInputAction: TextInputAction.next,
+  //             ),
+  //             SizedBox(height: 15),
+  //             TextFormField(
+  //               decoration: InputDecoration(labelText: 'Email'),
+  //               textInputAction: TextInputAction.next,
                 
-              ),
-              SizedBox(height: 15),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Phone'),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.number,
+  //             ),
+  //             SizedBox(height: 15),
+  //             TextFormField(
+  //               decoration: InputDecoration(labelText: 'Phone'),
+  //               textInputAction: TextInputAction.next,
+  //               keyboardType: TextInputType.number,
                 
-              ),
-              SizedBox(height: 15),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Password'),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.visiblePassword,
-              ),
-              SizedBox(height: 40),
-              new MaterialButton( 
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                ),
-                height: 70.0, 
-                minWidth: 360.0, 
-                color: Color(0xFF0057ff), 
-                textColor: Colors.white, 
-                child: new Text("Register",style: TextStyle(fontSize: 20),), 
-                onPressed:(){ }, 
-                splashColor: Colors.lightBlue,
-                elevation: 0,
-              ),
-             ],),
-            )),
-        ),
-      ],
-    );
-  }
+  //             ),
+  //             SizedBox(height: 15),
+  //             TextFormField(
+  //               decoration: InputDecoration(labelText: 'Password'),
+  //               textInputAction: TextInputAction.next,
+  //               keyboardType: TextInputType.visiblePassword,
+  //             ),
+  //             SizedBox(height: 40),
+  //             Padding(
+  //                 padding: EdgeInsets.only(
+  //                     bottom: MediaQuery.of(context).viewInsets.bottom),
+  //                 child:  MaterialButton( 
+  //                  shape: RoundedRectangleBorder(
+  //                    borderRadius: new BorderRadius.circular(15.0),
+  //                  ),
+  //                  height: 70.0, 
+  //                  minWidth: 360.0, 
+  //                  color: Color(0xFF0057ff), 
+  //                  textColor: Colors.white, 
+  //                  child: new Text("LogIn",style: TextStyle(fontSize: 20),), 
+  //                  onPressed:() => {}, 
+  //                  splashColor: Colors.lightBlue,
+  //                  elevation: 0,
+  //                ),
+  //               ),
+  //            ],),
+  //           )),
+  //       ),
+  //     ],
+  //   );
+  // }
 // /isScrollControlled: true,
   void _showModalSheet(AuthMode data) {
     showModalBottomSheet(context: context, isScrollControlled: true,
       shape: RoundedRectangleBorder( borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),), builder: (builder) {
       return Container(
-        
-        child: data==AuthMode.Login?Container(height: MediaQuery.of(context).size.height*.45,child:myLogin()):Container(height: MediaQuery.of(context).size.height*.60,child:mySignup()),
+       // height: MediaQuery.of(context).size.height*0.8,
+        child: data==AuthMode.Login?MyLogin():MySignup(),
         padding: EdgeInsets.all(20.0),
       );
     });

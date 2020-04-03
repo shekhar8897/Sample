@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample/AuthPage.dart';
+//import 'package:sample/check.dart';
 
 
 class HomePage extends StatefulWidget {
