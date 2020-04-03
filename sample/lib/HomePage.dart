@@ -38,29 +38,34 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
 Widget menu(context) {
-    return SlideTransition(
-      position: _slideAnimation,
-      child: ScaleTransition(
-        scale: _menuScaleAnimation,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text("Dashboard", style: TextStyle(color: Colors.black, fontSize: 22)),
-                SizedBox(height: 10),
-                Text("Messages", style: TextStyle(color: Colors.black, fontSize: 22)),
-                SizedBox(height: 10),
-                Text("Utility Bills", style: TextStyle(color: Colors.black, fontSize: 22)),
-                SizedBox(height: 10),
-                Text("Funds Transfer", style: TextStyle(color: Colors.black, fontSize: 22)),
-                SizedBox(height: 10),
-                Text("Branches", style: TextStyle(color: Colors.black, fontSize: 22)),
-              ],
+    return Container(
+      color: Colors.black,
+          child: SlideTransition(
+        
+        position: _slideAnimation,
+        child: ScaleTransition(
+          
+          scale: _menuScaleAnimation,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Home", style: TextStyle(color: Colors.white, fontSize: 22)),
+                  SizedBox(height: 10),
+                  // Text("Messages", style: TextStyle(color: Colors.black, fontSize: 22)),
+                  // SizedBox(height: 10),
+                  // Text("Utility Bills", style: TextStyle(color: Colors.black, fontSize: 22)),
+                  // SizedBox(height: 10),
+                  // Text("Funds Transfer", style: TextStyle(color: Colors.black, fontSize: 22)),
+                  // SizedBox(height: 10),
+                  // Text("Branches", style: TextStyle(color: Colors.black, fontSize: 22)),
+                ],
+              ),
             ),
           ),
         ),
@@ -79,7 +84,7 @@ Widget dashboard(context) {
         scale: _scaleAnimation,
         child: Material(
           animationDuration: duration,
-         
+          borderRadius: BorderRadius.all(Radius.circular(20)),
           elevation: 8,
           color: Colors.white,
           child: SingleChildScrollView(
@@ -115,7 +120,7 @@ Widget dashboard(context) {
                       SingleChildScrollView(
                         
                         scrollDirection: Axis.horizontal,
-                          physics: ClampingScrollPhysics(),
+                          physics: NeverScrollableScrollPhysics(),
                           child: new Container(
                           //decoration: BoxDecoration(border: Border.all(width:1,color: Colors.red)),
                           margin:EdgeInsets.only(top:0,left:30,right:30),

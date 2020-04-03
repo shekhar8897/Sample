@@ -30,12 +30,13 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   void _showModalSheet(AuthMode data) {
-    showModalBottomSheet(context: context, shape: RoundedRectangleBorder(
+    showModalBottomSheet(context: context, elevation:10,shape: RoundedRectangleBorder(
+      
           borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
         ), builder: (builder) {
      
       return Container(
-        
+        height: 1000,
         child: myForm(data),
         padding: EdgeInsets.all(40.0),
       );
@@ -46,7 +47,7 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-            physics: ClampingScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
           child: new Container(
               //decoration: BoxDecoration(border: Border.all(width:1)),
                margin:EdgeInsets.only(top:0,left:38,right:30),
@@ -80,7 +81,7 @@ class _AuthPageState extends State<AuthPage> {
                       ),
 
                       new MaterialButton(
-
+                       
                         shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(13.0),
                         ),
