@@ -1,9 +1,9 @@
-// import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:sample/myLogin.dart';
 import 'package:sample/mySignup.dart';
 
-enum AuthMode { Signup, Login }
+enum AuthMode { Signup, Login, Scan }
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key key}) : super(key: key);
@@ -13,76 +13,13 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  
- 
-  // Widget mySignup(){
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: <Widget>[
-  //       Text('SignUp',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff)),),
-  //       Divider(),
-  //       SizedBox(height: 50),
-  //       Container(
-                        
-  //         child: Form(
-  //          child: SingleChildScrollView(
-  //            child: Column(
-  //              children: <Widget>[
-  //                TextFormField(
-  //               decoration: InputDecoration(labelText: 'Username'),
-  //               textInputAction: TextInputAction.next,
-                
-  //             ),
-  //             SizedBox(height: 15),
-  //             TextFormField(
-  //               decoration: InputDecoration(labelText: 'Email'),
-  //               textInputAction: TextInputAction.next,
-                
-  //             ),
-  //             SizedBox(height: 15),
-  //             TextFormField(
-  //               decoration: InputDecoration(labelText: 'Phone'),
-  //               textInputAction: TextInputAction.next,
-  //               keyboardType: TextInputType.number,
-                
-  //             ),
-  //             SizedBox(height: 15),
-  //             TextFormField(
-  //               decoration: InputDecoration(labelText: 'Password'),
-  //               textInputAction: TextInputAction.next,
-  //               keyboardType: TextInputType.visiblePassword,
-  //             ),
-  //             SizedBox(height: 40),
-  //             Padding(
-  //                 padding: EdgeInsets.only(
-  //                     bottom: MediaQuery.of(context).viewInsets.bottom),
-  //                 child:  MaterialButton( 
-  //                  shape: RoundedRectangleBorder(
-  //                    borderRadius: new BorderRadius.circular(15.0),
-  //                  ),
-  //                  height: 70.0, 
-  //                  minWidth: 360.0, 
-  //                  color: Color(0xFF0057ff), 
-  //                  textColor: Colors.white, 
-  //                  child: new Text("LogIn",style: TextStyle(fontSize: 20),), 
-  //                  onPressed:() => {}, 
-  //                  splashColor: Colors.lightBlue,
-  //                  elevation: 0,
-  //                ),
-  //               ),
-  //            ],),
-  //           )),
-  //       ),
-  //     ],
-  //   );
-  // }
-// /isScrollControlled: true,
+
   void _showModalSheet(AuthMode data) {
     showModalBottomSheet(context: context, isScrollControlled: true,
       shape: RoundedRectangleBorder( borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),), builder: (builder) {
       return Container(
        // height: MediaQuery.of(context).size.height*0.8,
-        child: data==AuthMode.Login?MyLogin():MySignup(),
+        child: data==AuthMode.Scan?Text('Scan'):data==AuthMode.Login?MyLogin():MySignup(),
         padding: EdgeInsets.all(20.0),
       );
     });
@@ -135,7 +72,7 @@ class _AuthPageState extends State<AuthPage> {
                         color: Theme.of(context).buttonColor, 
                         textColor: Colors.white, 
                         child: new Icon(Icons.fingerprint),
-                        onPressed: () => {}, 
+                        onPressed: (){ _showModalSheet(AuthMode.Scan);}, 
                         splashColor: Colors.grey,
                         elevation: 0,
 
@@ -158,7 +95,7 @@ class _AuthPageState extends State<AuthPage> {
                         splashColor: Colors.lightBlue,
                         elevation: 0,
                       ),
-                    
+                   
                   
                 ],
               ),

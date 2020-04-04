@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample/AuthPage.dart';
-//import 'package:sample/check.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -128,7 +128,7 @@ Widget dashboard(context) {
                           padding: EdgeInsets.only(top:60,left:10),
                           height:MediaQuery.of(context).size.height*0.5,
                           child:Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                           // mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               

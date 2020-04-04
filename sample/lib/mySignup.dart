@@ -40,7 +40,7 @@ class _MySignupState extends State<MySignup> {
                   _usernameFocus.unfocus();
                   FocusScope.of(context).requestFocus(_passwordFocus);
                 },
-                autofocus: true,
+                autofocus: false,
                 decoration: InputDecoration(
                   // icon: Icon(Icons.person),
                   contentPadding:
