@@ -30,7 +30,7 @@ class _MySignupState extends State<MySignup> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-            Text('LogIn',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff),),),
+            Text('Register',style: TextStyle(fontSize: 40,color: Color(0xFF0057ff),),),
            Divider(),
            SizedBox(height: 50),
               TextFormField(
